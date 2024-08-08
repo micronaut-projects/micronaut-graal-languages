@@ -1,0 +1,19 @@
+plugins {
+    id "io.micronaut.build.internal.graal-languages-module"
+}
+
+micronautBuild {
+    binaryCompatibility {
+        enabled.set(false)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api(group: "org.graalvm.python", name: "python", version: libs.versions.graalpy.get(), ext: "pom", transitive: true)
+    api libs.graalpy.embedding
+    api 'io.micronaut:micronaut-aop'
+}
