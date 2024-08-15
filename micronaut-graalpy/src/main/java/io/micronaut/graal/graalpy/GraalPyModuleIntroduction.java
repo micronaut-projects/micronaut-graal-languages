@@ -23,26 +23,30 @@ import io.micronaut.context.annotation.Prototype;
 import io.micronaut.context.exceptions.ConfigurationException;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.core.type.Argument;
+import io.micronaut.graal.graalpy.annotations.GraalPyModuleBean;
 import io.micronaut.inject.ArgumentInjectionPoint;
 import io.micronaut.inject.BeanDefinition;
 import io.micronaut.inject.InjectionPoint;
-import org.graalvm.polyglot.Context;
+import org.graalvm.polyglot.Source;
 import org.graalvm.polyglot.Value;
-import io.micronaut.graal.graalpy.annotations.GraalPyModuleBean;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static io.micronaut.graal.graalpy.GraalPyContext.PYTHON;
 
 @InterceptorBean(GraalPyModuleBean.class)
 @Prototype
 class GraalPyModuleIntroduction implements MethodInterceptor<Object, Object> {
 
-    private static final String PYTHON = "python";
-    private final Context graalPyContext;
+    private static final Map<Class<?>, Source> SOURCES = new ConcurrentHashMap<>();
+
     private final Value pythonModule;
     private volatile Object pythonModuleInterface;
 
-    GraalPyModuleIntroduction(Context graalPyContext,
+    GraalPyModuleIntroduction(GraalPyContext graalPyContext,
                               InjectionPoint<?> injectionPoint,
                               ApplicationContext context) {
-        this.graalPyContext = graalPyContext;
         if (injectionPoint instanceof ArgumentInjectionPoint<?, ?> argumentInjectionPoint) {
             Argument<?> argument = argumentInjectionPoint.asArgument();
             Class<?> beanType = argument.getType();
@@ -51,7 +55,8 @@ class GraalPyModuleIntroduction implements MethodInterceptor<Object, Object> {
             if (moduleName == null) {
                 throw new ConfigurationException("GraalPyModuleBean has no module name: " + beanDefinition);
             }
-            this.pythonModule = graalPyContext.eval(PYTHON, "import " + moduleName + "; " + moduleName);
+            Source source = SOURCES.computeIfAbsent(beanType, (key) -> Source.create(PYTHON, "import " + moduleName + "; " + moduleName));
+            this.pythonModule = graalPyContext.get().eval(source);
         } else {
             throw new ConfigurationException("GraalPyModule cannot be used at injection point: " + injectionPoint);
         }

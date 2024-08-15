@@ -15,30 +15,31 @@
  */
 package io.micronaut.graal.graalpy;
 
-import io.micronaut.context.annotation.Factory;
 import jakarta.annotation.PreDestroy;
 import jakarta.inject.Singleton;
 import org.graalvm.polyglot.Context;
-import org.graalvm.python.embedding.utils.GraalPyResources;
 
 import java.io.IOException;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 /**
- * Factory to create a GraalPy context preconfigured with GraalPy and Truffle polyglot Context
- * configuration options optimized for the usage in GraalPy embedding scenarios.
+ * Wrapper for a GraalPy context.
  */
-@Factory
+@Singleton
 @io.micronaut.context.annotation.Context
-public final class GraalPyContextFactory {
+final class GraalPyContext {
+
+    static final String PYTHON = "python";
 
     private Context context;
 
-    @Singleton
-    Context createContext() {
-        context = GraalPyResources.createContext();
-        context.initialize("python");
+    public GraalPyContext(GraalPyContextBuilderFactory builder) {
+        context = builder.createBuilder().build();
+        context.initialize(PYTHON);
+    }
+
+    Context get() {
         return context;
     }
 
