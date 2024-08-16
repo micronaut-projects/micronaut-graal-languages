@@ -14,6 +14,8 @@ rootProject.name = 'micronaut-graal-languages'
 include 'micronaut-graalpy'
 include 'micronaut-graalpy-bom'
 
+include 'test-suite-graalpy'
+
 enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
 
 micronautBuild {
