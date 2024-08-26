@@ -15,6 +15,7 @@
  */
 package io.micronaut.graal.graalpy;
 
+import io.micronaut.core.annotation.Internal;
 import jakarta.annotation.PreDestroy;
 import jakarta.inject.Singleton;
 import org.graalvm.polyglot.Context;
@@ -24,8 +25,9 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 /**
- * Wrapper for a GraalPy context.
+ * Internal wrapper for GraalPy context.
  */
+@Internal
 @Singleton
 @io.micronaut.context.annotation.Context
 final class GraalPyContext {

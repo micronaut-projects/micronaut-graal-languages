@@ -19,14 +19,19 @@ import io.micronaut.context.annotation.DefaultImplementation;
 import org.graalvm.polyglot.Context;
 
 /**
- * Factory to create a GraalPy context preconfigured with GraalPy and Truffle polyglot Context
- * configuration options optimized for the usage in GraalPy embedding scenarios.
+ * Factory that allows customization of the creation of the {@link org.graalvm.polyglot.Context}
+ * used by the introduction advice {@link io.micronaut.graal.graalpy.annotations.GraalPyModuleBean}.
+ * <p>
+ * The default implementation returns {@link org.graalvm.python.embedding.utils.GraalPyResources#contextBuilder()}
+ * to create a context builder that is preconfigured with a virtual filesystem that provides
+ * access to resources configured with the GraalPy Maven plugin.
  */
 @DefaultImplementation(DefaultGraalPyContextBuilderFactory.class)
 public interface GraalPyContextBuilderFactory {
     /**
-     * Create a graalpy context.
-     * @return builder
+     * Create a context builder that will be used to create the new context.
+     *
+     * @return context builder
      */
     Context.Builder createBuilder();
 }

@@ -27,6 +27,7 @@ import io.micronaut.graal.graalpy.annotations.GraalPyModuleBean;
 import io.micronaut.inject.ArgumentInjectionPoint;
 import io.micronaut.inject.BeanDefinition;
 import io.micronaut.inject.InjectionPoint;
+import org.graalvm.polyglot.PolyglotException;
 import org.graalvm.polyglot.Source;
 import org.graalvm.polyglot.Value;
 
@@ -51,14 +52,16 @@ class GraalPyModuleIntroduction implements MethodInterceptor<Object, Object> {
             Argument<?> argument = argumentInjectionPoint.asArgument();
             Class<?> beanType = argument.getType();
             BeanDefinition<?> beanDefinition = context.getBeanDefinition(beanType);
-            String moduleName = beanDefinition.stringValue(GraalPyModuleBean.class).get();
-            if (moduleName == null) {
-                throw new ConfigurationException("GraalPyModuleBean has no module name: " + beanDefinition);
-            }
+            String moduleName = beanDefinition.stringValue(GraalPyModuleBean.class)
+                .orElseThrow(() -> new ConfigurationException(String.format("@%s annotation without name of the module", GraalPyModuleBean.class.getSimpleName())));
             Source source = SOURCES.computeIfAbsent(beanType, (key) -> Source.create(PYTHON, "import " + moduleName + "; " + moduleName));
-            this.pythonModule = graalPyContext.get().eval(source);
+            try {
+                this.pythonModule = graalPyContext.get().eval(source);
+            } catch (PolyglotException ex) {
+                throw new ConfigurationException(String.format("Import of Python module '%s' failed.", moduleName), ex);
+            }
         } else {
-            throw new ConfigurationException("GraalPyModule cannot be used at injection point: " + injectionPoint);
+            throw new IllegalStateException("Unexpected InjectionPoint passed to MethodInterceptor.");
         }
     }
 
