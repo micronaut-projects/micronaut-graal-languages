@@ -24,7 +24,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * An annotation for introduction advice that implements this interface using
+ * An annotation for Micronaut Introduction Advice that implements this interface using
  * the <a href="https://www.graalvm.org/python">GraalPy</a> Python implementation and the
  * <a href="https://www.graalvm.org/truffle/javadoc/org/graalvm/polyglot/Value.html#target-type-mapping-heading">polyglot type mapping</a>.
  * <p>
@@ -56,7 +56,7 @@ import java.lang.annotation.Target;
  *     to avoid this if possible. More <a href="https://www.graalvm.org/truffle/javadoc/org/graalvm/polyglot/Context.Builder.html#allowValueSharing(boolean)">details</a>.</li>
  * </ul>
  * <p>
- * Currently, this introduction advice does not support multi-context execution, but users can
+ * Currently, this Introduction Advice does not support multi-context execution, but users can
  * implement it by hand using the Context APIs directly. We are collecting feedback and requirements
  * to provide such features in the next versions.
  * <p>
