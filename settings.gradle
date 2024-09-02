@@ -9,7 +9,7 @@ plugins {
     id 'io.micronaut.build.shared.settings' version '7.0.1'
 }
 
-rootProject.name = 'project-template-parent'
+rootProject.name = 'micronaut-graal-languages'
 
 include 'project-template'
 include 'project-template-bom'
