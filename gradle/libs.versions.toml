@@ -19,7 +19,7 @@
 micronaut = "4.6.3"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.2.1"
-groovy = "4.0.17"
+groovy = "4.0.22"
 spock = "2.3-groovy-4.0"
 
 # Managed versions appear in the BOM
