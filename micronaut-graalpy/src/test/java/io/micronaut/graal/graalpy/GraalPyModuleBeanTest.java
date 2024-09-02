@@ -1,2 +1,3 @@
-package io.micronaut.graal.graalpy;public class GraalPyModuleBeanTest {
+package io.micronaut.graal.graalpy;
+public class GraalPyModuleBeanTest {
 }

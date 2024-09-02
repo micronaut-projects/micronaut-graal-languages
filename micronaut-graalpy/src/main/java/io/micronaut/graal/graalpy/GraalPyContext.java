@@ -17,7 +17,6 @@ package io.micronaut.graal.graalpy;
 
 import io.micronaut.core.annotation.Internal;
 import jakarta.annotation.PreDestroy;
-import jakarta.inject.Singleton;
 import org.graalvm.polyglot.Context;
 
 import java.io.IOException;
@@ -28,9 +27,8 @@ import java.time.temporal.ChronoUnit;
  * Internal wrapper for GraalPy context.
  */
 @Internal
-@Singleton
 @io.micronaut.context.annotation.Context
-final class GraalPyContext {
+final class GraalPyContext implements AutoCloseable {
 
     static final String PYTHON = "python";
 
@@ -45,8 +43,9 @@ final class GraalPyContext {
         return context;
     }
 
+    @Override
     @PreDestroy
-    void close() throws IOException {
+    public void close() throws IOException {
         try {
             context.interrupt(Duration.of(5,  ChronoUnit.SECONDS));
             context.close(true);
