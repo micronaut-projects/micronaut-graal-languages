@@ -1,1 +1,5 @@
-TODO
+Micronaut Graal Languages is a collection of components for integration of Graal
+based dynamic languages with Micronaut.
+
+Note: if you are looking for the Micronaut React server-side rendering, it is part
+of the https://micronaut-projects.github.io/micronaut-views/latest/guide/#react[Micronaut Views] project.
