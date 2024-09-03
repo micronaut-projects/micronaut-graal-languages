@@ -7,11 +7,6 @@ micronautBuild {
         enabled.set(false)
     }
 }
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     api(libs.graalpy) {
         artifact {
