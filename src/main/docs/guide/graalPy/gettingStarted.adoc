@@ -30,29 +30,39 @@ WARNING: Gradle plugin not available yet
  <!-- ... -->
 ----
 
-3) Add custom Python script to `src/main/resources/org.graalvm.python.vfs/src`:
+<1> Optional list of Python Package Index (PyPI) packages to be automatically
+installed during the build.
+
+3) Add custom Python script to the resources folder. The location follows the convention
+recognized by the GraalPy support library.
 
 [source,python]
+.src/main/resources/org.graalvm.python.vfs/src/dealer.py
 ----
-# src/main/resources/org.graalvm.python.vfs/src/example.py
-def foo():
-    return "bar"
+include::{sourceDir}/test-suite-graalpy/src/test/java/io/micronaut/graal/graalpy/ExampleTest.java[tag=python_module, indent=0]
 ----
 
 4) Create a Java interface for the Python module
 
-snippet::example.ExampleService[project-base="doc-examples/graalpy-example", source="main"]
+[source,java]
+----
+include::{sourceDir}/test-suite-graalpy/src/test/java/io/micronaut/graal/graalpy/DealerService.java[lines=3..-1]
+----
 
-5) This library will provide injectable implementation of the interface backed by the Python module.
+<1> Use api:io.micronaut.graal.graalpy.annotations.GraalPyModuleBean[] annotation to map this interface to a Python module.
+The value of the annotation is the name of the Python module that should be used.
+<2> Methods in the interface will be automatically mapped to Python functions of the same name.
+The mapping follows the
+https://www.graalvm.org/truffle/javadoc/org/graalvm/polyglot/Value.html#target-type-mapping-heading[polyglot type mapping]
+rules.
+
+5) This library will provide injectable implementation of the interface
+backed by the Python module.
 
 [source,java]
 ----
-@Bean
-public class AnotherService {
-    @Inject ExampleService example;
-
-    public String getBar() {
-        example.foo();
-    }
-}
+include::{sourceDir}/test-suite-graalpy/src/test/java/io/micronaut/graal/graalpy/DocExample.java[lines=3..-1]
 ----
+
+NOTE: See api:io.micronaut.graal.graalpy.annotations.GraalPyModuleBean[] documentation for more details about
+global state, threading, and limitations.
