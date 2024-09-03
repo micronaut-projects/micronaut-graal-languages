@@ -1,18 +1,7 @@
 plugins {
-    id "io.micronaut.build.internal.graal-languages-module"
+    id "io.micronaut.build.internal.graal-languages-base"
+    id 'java-library'
 }
-
-micronautBuild {
-    binaryCompatibility {
-        enabled.set(false)
-    }
-}
-
-repositories {
-    mavenCentral()
-}
-
-
 
 dependencies {
     testImplementation(projects.micronautGraalpy)
