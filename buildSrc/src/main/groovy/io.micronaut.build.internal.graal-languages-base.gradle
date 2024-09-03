@@ -1,1 +1,27 @@
-// If you don't need any common settings/dependencies/... for everything, remove this convention plugin and the reference to it in `io.micronaut.build.internal.project-template-module.gradle` file
+repositories {
+    mavenCentral {
+        content {
+            excludeGroup("org.graalvm.shadowed")
+            excludeGroup("org.graalvm.llvm")
+            excludeGroup("org.graalvm.regex")
+            excludeGroup("org.graalvm.tools")
+            excludeGroup("org.graalvm.truffle")
+            excludeGroup("org.graalvm.sdk")
+            excludeGroup("org.graalvm.python")
+            excludeGroup("org.graalvm.polyglot")
+        }
+    }
+    maven {
+        url ""
+        content {
+            includeGroup("org.graalvm.shadowed")
+            includeGroup("org.graalvm.llvm")
+            includeGroup("org.graalvm.regex")
+            includeGroup("org.graalvm.tools")
+            includeGroup("org.graalvm.truffle")
+            includeGroup("org.graalvm.sdk")
+            includeGroup("org.graalvm.python")
+            includeGroup("org.graalvm.polyglot")
+        }
+    }
+}

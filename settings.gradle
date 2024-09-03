@@ -9,8 +9,37 @@ plugins {
     id 'io.micronaut.build.shared.settings' version '7.2.1'
 }
 
-rootProject.name = 'micronaut-graal-languages'
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral {
+            content {
+                excludeGroup("org.graalvm.shadowed")
+                excludeGroup("org.graalvm.llvm")
+                excludeGroup("org.graalvm.regex")
+                excludeGroup("org.graalvm.tools")
+                excludeGroup("org.graalvm.truffle")
+                excludeGroup("org.graalvm.sdk")
+                excludeGroup("org.graalvm.python")
+                excludeGroup("org.graalvm.polyglot")
+            }
+        }
+        maven {
+            url ""
+            content {
+                includeGroup("org.graalvm.shadowed")
+                includeGroup("org.graalvm.llvm")
+                includeGroup("org.graalvm.regex")
+                includeGroup("org.graalvm.tools")
+                includeGroup("org.graalvm.truffle")
+                includeGroup("org.graalvm.sdk")
+                includeGroup("org.graalvm.python")
+                includeGroup("org.graalvm.polyglot")
+            }
+        }
+    }
+}
 
+rootProject.name = 'micronaut-graal-languages'
 
 include 'graalpy'
 include 'graal-languages-bom'
