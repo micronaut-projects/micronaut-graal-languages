@@ -10,7 +10,6 @@ micronautBuild {
 
 repositories {
     mavenCentral()
-    maven{ url = "XXX" }
 }
 
 dependencies {
@@ -21,5 +20,5 @@ dependencies {
         transitive = true
     }
     api libs.graalpy.embedding
-    api(mn.micronaut.aop)
+    api(mn.micronaut.aop)    
 }
