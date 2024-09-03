@@ -22,7 +22,7 @@ import org.graalvm.python.embedding.utils.GraalPyResources;
 
 @Experimental
 @Singleton
-class DefaultGraalPyContextBuilderFactory implements GraalPyContextBuilderFactory {
+final class DefaultGraalPyContextBuilderFactory implements GraalPyContextBuilderFactory {
     @Override
     public Context.Builder createBuilder() {
         return GraalPyResources.contextBuilder();
