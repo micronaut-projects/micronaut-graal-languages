@@ -16,6 +16,7 @@
 package io.micronaut.graal.graalpy;
 
 import io.micronaut.context.annotation.DefaultImplementation;
+import io.micronaut.core.annotation.Experimental;
 import org.graalvm.polyglot.Context;
 
 /**
@@ -26,6 +27,7 @@ import org.graalvm.polyglot.Context;
  * to create a context builder that is preconfigured with a virtual filesystem that provides
  * access to resources configured with the GraalPy Maven plugin.
  */
+@Experimental
 @DefaultImplementation(DefaultGraalPyContextBuilderFactory.class)
 public interface GraalPyContextBuilderFactory {
     /**

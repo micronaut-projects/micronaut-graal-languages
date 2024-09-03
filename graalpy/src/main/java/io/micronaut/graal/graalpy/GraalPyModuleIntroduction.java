@@ -21,6 +21,7 @@ import io.micronaut.aop.MethodInvocationContext;
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.annotation.Prototype;
 import io.micronaut.context.exceptions.ConfigurationException;
+import io.micronaut.core.annotation.Experimental;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.core.type.Argument;
 import io.micronaut.graal.graalpy.annotations.GraalPyModuleBean;
@@ -36,6 +37,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static io.micronaut.graal.graalpy.GraalPyContext.PYTHON;
 
+@Experimental
 @InterceptorBean(GraalPyModuleBean.class)
 @Prototype
 class GraalPyModuleIntroduction implements MethodInterceptor<Object, Object> {
