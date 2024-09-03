@@ -1,5 +1,5 @@
 plugins {
-    id "io.micronaut.build.internal.graal-languages-base"
+    id("io.micronaut.build.internal.graal-languages-base")
     id 'java-library'
 }
 
