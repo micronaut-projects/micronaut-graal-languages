@@ -19,7 +19,7 @@
 micronaut = "4.6.0"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.3.0"
-groovy = "4.0.17"
+groovy = "4.0.22"
 graalpy = "24.1.0-SNAPSHOT"
 
 [libraries]
