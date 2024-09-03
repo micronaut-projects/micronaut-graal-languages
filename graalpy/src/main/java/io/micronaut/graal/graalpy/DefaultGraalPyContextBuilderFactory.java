@@ -15,13 +15,11 @@
  */
 package io.micronaut.graal.graalpy;
 
-import io.micronaut.context.annotation.Bean;
 import jakarta.inject.Singleton;
 import org.graalvm.polyglot.Context;
 import org.graalvm.python.embedding.utils.GraalPyResources;
 
 @Singleton
-@Bean
 class DefaultGraalPyContextBuilderFactory implements GraalPyContextBuilderFactory {
     @Override
     public Context.Builder createBuilder() {
