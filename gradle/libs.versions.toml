@@ -20,7 +20,7 @@ micronaut = "4.6.0"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.3.0"
 groovy = "4.0.22"
-graalpy = "24.1.0-SNAPSHOT"
+managed-graalpy = "24.1.0-SNAPSHOT"
 
 [libraries]
 # Core
@@ -30,6 +30,6 @@ micronaut-test = { module = "io.micronaut.test:micronaut-test-bom", version.ref 
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
 
-graalpy = { module = 'org.graalvm.python:python', version.ref = 'graalpy' }
-graalpy-embedding = { module = 'org.graalvm.python:python-embedding', version.ref = 'graalpy' }
+managed-graalpy = { module = 'org.graalvm.python:python', version.ref = 'managed-graalpy' }
+managed-graalpy-embedding = { module = 'org.graalvm.python:python-embedding', version.ref = 'managed-graalpy' }
 

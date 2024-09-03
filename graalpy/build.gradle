@@ -8,12 +8,12 @@ micronautBuild {
     }
 }
 dependencies {
-    api(libs.graalpy) {
+    api(libs.managed.graalpy) {
         artifact {
             type = "pom"
         }
         transitive = true
     }
-    api(libs.graalpy.embedding)
+    api(libs.managed.graalpy.embedding)
     implementation(mn.micronaut.aop)
 }
