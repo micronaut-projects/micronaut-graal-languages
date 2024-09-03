@@ -15,5 +15,5 @@ dependencies {
         transitive = true
     }
     api(libs.graalpy.embedding)
-    api(mn.micronaut.aop)    
+    implementation(mn.micronaut.aop)
 }
