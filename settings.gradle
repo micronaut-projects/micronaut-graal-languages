@@ -16,6 +16,19 @@ include 'micronaut-graalpy-bom'
 
 include 'test-suite-graalpy'
 
+// include 'doc-examples:graalpy-example-java'
+/*
+* Where:
+Build file '/home/steve/dev/GR/micronaut-support/micronaut-graal-languages/build.gradle' line: 2
+
+* What went wrong:
+An exception occurred applying plugin request [id: 'io.micronaut.build.internal.docs']
+> Failed to apply plugin class 'io.micronaut.build.docs.JavadocAggregatorPlugin'.
+   > A problem occurred configuring project ':doc-examples:graalpy-example-java'.
+      > A problem occurred evaluating project ':doc-examples:graalpy-example-java'.
+         > Could not find method application() for arguments [build_a51hcdzj8bkvjv8seom2n993d$_run_closure1@77d46fac] on project ':doc-examples:graalpy-example-java' of type org.gradle.api.Project.
+ */
+
 enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
 
 micronautBuild {

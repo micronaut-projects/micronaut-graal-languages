@@ -1,0 +1,21 @@
+plugins {
+    id "java"
+}
+
+application {
+    mainClass = "example.Application"
+}
+
+repositories {
+    mavenCentral()
+}
+
+micronaut {
+    version libs.versions.micronaut.platform.get()
+    runtime "netty"
+    testRuntime "junit5"
+}
+
+dependencies {
+    projects.micronautGraalpy
+}

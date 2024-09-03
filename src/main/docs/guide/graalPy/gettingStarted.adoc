@@ -1,0 +1,56 @@
+To use the GraalPy integration:
+
+1) Add the `micronaut-graalpy` dependency on your classpath:
+
+dependency:io.micronaut.micronaut-graal-languages:micronaut-graalpy[scope=build]
+
+2) Add the GraalPy Maven plugin (Gradle plugin will be available soon):
+
+[source,xml]
+----
+<build>
+ <plugins>
+  <plugin>
+    <groupId>org.graalvm.python</groupId>
+    <artifactId>graalpy-maven-plugin</artifactId>
+    <version>${graalpy.version}</version>
+    <executions>
+      <execution>
+        <configuration>
+          <packages>
+            <package>termcolor==2.2</package> // (1)
+          </packages>
+        </configuration
+      </execution>
+    </executions>
+  </plugin>
+ </plugins>
+ <!-- ... -->
+----
+
+3) Add custom Python script to `src/main/resources/org.graalvm.python.vfs/src`:
+
+[source,python]
+----
+# src/main/resources/org.graalvm.python.vfs/src/example.py
+def foo():
+    return "bar"
+----
+
+4) Create a Java interface for the Python module
+
+snippet::example.ExampleService[project-base="doc-examples/graalpy-example", source="main"]
+
+5) This library will provide injectable implementation of the interface backed by the Python module.
+
+[source,java]
+----
+@Bean
+public class AnotherService {
+    @Inject ExampleService example;
+
+    public String getBar() {
+        example.foo();
+    }
+}
+----

@@ -1,0 +1,1 @@
+Micronaut GraalPy is an annotation-based feature to expose Python modules as Java Beans.

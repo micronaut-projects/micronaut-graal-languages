@@ -1,7 +1,7 @@
-introduction:
-  title: Introduction
+introduction: Introduction
 releaseHistory: Release History
-quickStart:
-  title: Quick Start
+graalPy:
+  title: GraalPy
+  gettingStarted: Getting Started
 repository: Repository
 
