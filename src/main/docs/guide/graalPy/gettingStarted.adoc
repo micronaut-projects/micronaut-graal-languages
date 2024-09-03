@@ -4,7 +4,9 @@ To use the GraalPy integration:
 
 dependency:io.micronaut.micronaut-graal-languages:micronaut-graalpy[scope=build]
 
-2) Add the GraalPy Maven plugin (Gradle plugin will be available soon):
+2) Add the https://github.com/oracle/graalpython/blob/master/docs/user/Embedding-Build-Tools.md[GraalPy Maven plugin]
+
+WARNING: Gradle plugin not available yet
 
 [source,xml]
 ----
@@ -20,7 +22,7 @@ dependency:io.micronaut.micronaut-graal-languages:micronaut-graalpy[scope=build]
           <packages>
             <package>termcolor==2.2</package> // (1)
           </packages>
-        </configuration
+        </configuration>
       </execution>
     </executions>
   </plugin>
