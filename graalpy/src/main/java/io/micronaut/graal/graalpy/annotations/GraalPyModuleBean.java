@@ -17,6 +17,7 @@ package io.micronaut.graal.graalpy.annotations;
 
 import io.micronaut.aop.Introduction;
 import io.micronaut.context.annotation.Bean;
+import io.micronaut.core.annotation.Experimental;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -86,6 +87,7 @@ import java.lang.annotation.Target;
  * </pre>
  */
 
+@Experimental
 @Introduction
 @Bean
 @Target(ElementType.TYPE)
