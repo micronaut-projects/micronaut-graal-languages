@@ -33,7 +33,7 @@ WARNING: Gradle plugin not available yet
 <1> Optional list of Python Package Index (PyPI) packages to be automatically
 installed during the build.
 
-3) Add custom Python script to the resources folder. The location follows the convention
+3) Add the `dealer.py` Python script to the resources folder. The location follows the convention
 recognized by the GraalPy support library.
 
 [source,python]
@@ -56,7 +56,7 @@ The mapping follows the
 https://www.graalvm.org/truffle/javadoc/org/graalvm/polyglot/Value.html#target-type-mapping-heading[polyglot type mapping]
 rules.
 
-5) This library will provide injectable implementation of the interface
+5) This library will provide an injectable implementation of the interface
 backed by the Python module.
 
 [source,java]

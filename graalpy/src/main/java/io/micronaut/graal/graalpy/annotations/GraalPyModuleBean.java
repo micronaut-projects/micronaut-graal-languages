@@ -61,7 +61,7 @@ import java.lang.annotation.Target;
  * to provide such features in the next versions.
  * <p>
  * <b>Deployment</b>: for the ease of installation and deployment of 3rd party Python packages
- * as well as custom Python scripts or packages, it is recommended to used the GraalPy Maven
+ * as well as custom Python scripts or packages, it is recommended to use the GraalPy Maven
  * plugin. The polyglot context is automatically configured to include the resources configured in
  * the plugin.
  * <p>
