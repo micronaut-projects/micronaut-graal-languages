@@ -31,7 +31,7 @@ import java.lang.annotation.Target;
  * <p>
  * <b>Global state</b>: there is a single shared <a href="https://www.graalvm.org/truffle/javadoc/org/graalvm/polyglot/Context">polyglot Context</a>
  * that the advice uses to import the Python modules
- * annotated with {@link GraalPyModuleBean} and execute their Python code. If multiple {@link GraalPyModuleBean}
+ * annotated with {@link GraalPyModule} and execute their Python code. If multiple {@link GraalPyModule}
  * annotations map to the same Python module, they will all delegate to the same underlying Python
  * module object.
  * <p>
@@ -92,7 +92,7 @@ import java.lang.annotation.Target;
 @Bean
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface GraalPyModuleBean {
+public @interface GraalPyModule {
     /**
      * Name of the Python module to import. This may be a relative or absolute import.
      * In general, a valid value is anything that can follow after the {@code import} keyword

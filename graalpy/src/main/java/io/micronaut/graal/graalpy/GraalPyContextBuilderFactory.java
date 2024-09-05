@@ -17,11 +17,12 @@ package io.micronaut.graal.graalpy;
 
 import io.micronaut.context.annotation.DefaultImplementation;
 import io.micronaut.core.annotation.Experimental;
+import io.micronaut.graal.graalpy.annotations.GraalPyModule;
 import org.graalvm.polyglot.Context;
 
 /**
  * Factory that allows customization of the creation of the {@link org.graalvm.polyglot.Context}
- * used by the introduction advice {@link io.micronaut.graal.graalpy.annotations.GraalPyModuleBean}.
+ * used by the introduction advice {@link GraalPyModule}.
  * <p>
  * The default implementation returns {@link org.graalvm.python.embedding.utils.GraalPyResources#contextBuilder()}
  * to create a context builder that is preconfigured with a virtual filesystem that provides

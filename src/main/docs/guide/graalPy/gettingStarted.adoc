@@ -49,7 +49,7 @@ include::{sourceDir}/test-suite-graalpy/src/test/java/io/micronaut/graal/graalpy
 include::{sourceDir}/test-suite-graalpy/src/test/java/io/micronaut/graal/graalpy/DealerService.java[lines=3..-1]
 ----
 
-<1> Use api:io.micronaut.graal.graalpy.annotations.GraalPyModuleBean[] annotation to map this interface to a Python module.
+<1> Use api:io.micronaut.graal.graalpy.annotations.GraalPyModule[] annotation to map this interface to a Python module.
 The value of the annotation is the name of the Python module that should be used.
 <2> Methods in the interface will be automatically mapped to Python functions of the same name.
 The mapping follows the
@@ -64,5 +64,5 @@ backed by the Python module.
 include::{sourceDir}/test-suite-graalpy/src/test/java/io/micronaut/graal/graalpy/DocExample.java[lines=3..-1]
 ----
 
-NOTE: See api:io.micronaut.graal.graalpy.annotations.GraalPyModuleBean[] documentation for more details about
+NOTE: See api:io.micronaut.graal.graalpy.annotations.GraalPyModule[] documentation for more details about
 global state, threading, and limitations.

@@ -10,7 +10,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 @MicronautTest(startApplication = false)
-public class GraalPyModuleBeanTest {
+public class GraalPyModuleTest {
 
     @Inject
     SysModule sysModule;
@@ -19,7 +19,7 @@ public class GraalPyModuleBeanTest {
     BeanContext beanContext;
 
     @Test
-    void testGraalPyModuleBean() {
+    void testGraalPyModule() {
         assertTrue(beanContext.containsBean(SysModule.class));
 
         assertFalse(sysModule.is_finalizing());

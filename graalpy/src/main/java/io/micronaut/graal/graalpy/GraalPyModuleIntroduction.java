@@ -25,7 +25,7 @@ import io.micronaut.core.annotation.Experimental;
 import io.micronaut.core.annotation.Internal;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.core.type.Argument;
-import io.micronaut.graal.graalpy.annotations.GraalPyModuleBean;
+import io.micronaut.graal.graalpy.annotations.GraalPyModule;
 import io.micronaut.inject.ArgumentInjectionPoint;
 import io.micronaut.inject.BeanDefinition;
 import io.micronaut.inject.InjectionPoint;
@@ -40,7 +40,7 @@ import static io.micronaut.graal.graalpy.GraalPyContext.PYTHON;
 
 @Experimental
 @Internal
-@InterceptorBean(GraalPyModuleBean.class)
+@InterceptorBean(GraalPyModule.class)
 @Prototype
 class GraalPyModuleIntroduction implements MethodInterceptor<Object, Object> {
 
@@ -56,8 +56,8 @@ class GraalPyModuleIntroduction implements MethodInterceptor<Object, Object> {
             Argument<?> argument = argumentInjectionPoint.asArgument();
             Class<?> beanType = argument.getType();
             BeanDefinition<?> beanDefinition = context.getBeanDefinition(beanType);
-            String moduleName = beanDefinition.stringValue(GraalPyModuleBean.class)
-                .orElseThrow(() -> new ConfigurationException(String.format("@%s annotation without name of the module", GraalPyModuleBean.class.getSimpleName())));
+            String moduleName = beanDefinition.stringValue(GraalPyModule.class)
+                .orElseThrow(() -> new ConfigurationException(String.format("@%s annotation without name of the module", GraalPyModule.class.getSimpleName())));
             Source source = SOURCES.computeIfAbsent(beanType, (key) -> Source.create(PYTHON, "import " + moduleName + "; " + moduleName));
             try {
                 this.pythonModule = graalPyContext.get().eval(source);

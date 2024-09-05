@@ -1,8 +1,8 @@
 package io.micronaut.graal.graalpy;
 
-import io.micronaut.graal.graalpy.annotations.GraalPyModuleBean;
+import io.micronaut.graal.graalpy.annotations.GraalPyModule;
 
-@GraalPyModuleBean("sys")
+@GraalPyModule("sys")
 public interface SysModule{
     public boolean is_finalizing();
     public String[] path();
