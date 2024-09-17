@@ -1,0 +1,68 @@
+To use the GraalPy integration:
+
+1) Add the `micronaut-graalpy` dependency on your classpath:
+
+dependency:io.micronaut.micronaut-graal-languages:micronaut-graalpy[scope=build]
+
+2) Add the https://github.com/oracle/graalpython/blob/master/docs/user/Embedding-Build-Tools.md[GraalPy Maven plugin]
+
+WARNING: Gradle plugin not available yet
+
+[source,xml]
+----
+<build>
+ <plugins>
+  <plugin>
+    <groupId>org.graalvm.python</groupId>
+    <artifactId>graalpy-maven-plugin</artifactId>
+    <version>${graalpy.version}</version>
+    <executions>
+      <execution>
+        <configuration>
+          <packages>
+            <package>termcolor==2.2</package> // (1)
+          </packages>
+        </configuration>
+      </execution>
+    </executions>
+  </plugin>
+ </plugins>
+ <!-- ... -->
+----
+
+<1> Optional list of Python Package Index (PyPI) packages to be automatically
+installed during the build.
+
+3) Add the `dealer.py` Python script to the resources folder. The location follows the convention
+recognized by the GraalPy support library.
+
+[source,python]
+.src/main/resources/org.graalvm.python.vfs/src/dealer.py
+----
+include::{sourceDir}/test-suite-graalpy/src/test/java/io/micronaut/graal/graalpy/ExampleTest.java[tag=python_module, indent=0]
+----
+
+4) Create a Java interface for the Python module
+
+[source,java]
+----
+include::{sourceDir}/test-suite-graalpy/src/test/java/io/micronaut/graal/graalpy/DealerService.java[lines=3..-1]
+----
+
+<1> Use api:io.micronaut.graal.graalpy.annotations.GraalPyModule[] annotation to map this interface to a Python module.
+The value of the annotation is the name of the Python module that should be used.
+<2> Methods in the interface will be automatically mapped to Python functions of the same name.
+The mapping follows the
+https://www.graalvm.org/truffle/javadoc/org/graalvm/polyglot/Value.html#target-type-mapping-heading[polyglot type mapping]
+rules.
+
+5) This library will provide an injectable implementation of the interface
+backed by the Python module.
+
+[source,java]
+----
+include::{sourceDir}/test-suite-graalpy/src/test/java/io/micronaut/graal/graalpy/DocExample.java[lines=3..-1]
+----
+
+NOTE: See api:io.micronaut.graal.graalpy.annotations.GraalPyModule[] documentation for more details about
+global state, threading, and limitations.

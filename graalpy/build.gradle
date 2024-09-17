@@ -1,0 +1,19 @@
+plugins {
+    id("io.micronaut.build.internal.graal-languages-module")
+}
+
+micronautBuild {
+    binaryCompatibility {
+        enabled.set(false)
+    }
+}
+dependencies {
+    api(libs.managed.graalpy) {
+        artifact {
+            type = "pom"
+        }
+        transitive = true
+    }
+    api(libs.managed.graalpy.embedding)
+    implementation(mn.micronaut.aop)
+}
