@@ -6,16 +6,24 @@ pluginManagement {
 }
 
 plugins {
-    id 'io.micronaut.build.shared.settings' version '7.0.1'
+    id 'io.micronaut.build.shared.settings' version '7.2.1'
 }
 
-rootProject.name = 'project-template-parent'
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
 
-include 'project-template'
-include 'project-template-bom'
+rootProject.name = 'micronaut-graal-languages'
+
+include 'graalpy'
+include 'graal-languages-bom'
+include 'test-suite-graalpy'
 
 enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
 
 micronautBuild {
+    useStandardizedProjectNames=true
     importMicronautCatalog()
 }

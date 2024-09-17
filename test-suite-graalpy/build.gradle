@@ -1,0 +1,15 @@
+plugins {
+    id("io.micronaut.build.internal.graal-languages-base")
+    id 'java-library'
+}
+
+dependencies {
+    testImplementation(projects.micronautGraalpy)
+    testAnnotationProcessor(mn.micronaut.inject.java)
+    testImplementation(mnTest.micronaut.test.junit5)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+}
+
+test {
+    useJUnitPlatform()
+}

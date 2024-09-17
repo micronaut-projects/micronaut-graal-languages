@@ -1,1 +1,4 @@
-TODO
+Micronaut Graal Languages is a collection of components for integration of https://www.graalvm.org/latest/graalvm-as-a-platform/language-implementation-framework/Languages/[Graal
+based dynamic languages with Micronaut Framework].
+
+Note: https://micronaut-projects.github.io/micronaut-views/latest/guide/#react[Micronaut React server-side rendering], which is based on GraalJS, is part of Micronaut Views.
