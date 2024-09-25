@@ -2,7 +2,7 @@ To use the GraalPy integration:
 
 1) Add the `micronaut-graalpy` dependency on your classpath:
 
-dependency:io.micronaut.micronaut-graal-languages:micronaut-graalpy[scope=build]
+dependency:io.micronaut.micronaut-graal-languages:micronaut-graalpy[scope=compile]
 
 2) Add the https://github.com/oracle/graalpython/blob/master/docs/user/Embedding-Build-Tools.md[GraalPy Maven plugin]
 
