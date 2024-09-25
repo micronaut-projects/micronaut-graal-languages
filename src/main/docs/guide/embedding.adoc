@@ -1,0 +1,11 @@
+You can embed https://www.graalvm.org/latest/reference-manual/languages/[Graal Languages] in your application. For example, to embed Javascript you could add the following dependencies:
+
+dependency:io.micronaut.micronaut-graal-languages:micronaut-graal-languages-core[scope=compile]
+
+dependency:org.graalvm.js:js[scope=runtime]
+
+[source,java]
+.src/main/java/example/micronaut/HomeController.java
+----
+include::{sourceDir}/graal-languages-core/src/test/java/io/micronaut/graallanguages/core/HomeController.java[tag=controller, indent=0]
+----

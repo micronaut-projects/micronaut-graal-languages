@@ -1,5 +1,6 @@
 introduction: Introduction
 releaseHistory: Release History
+embedding: Embedding Graal Languages
 graalPy:
   title: GraalPy
   gettingStarted: Getting Started
