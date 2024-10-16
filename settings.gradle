@@ -19,6 +19,7 @@ rootProject.name = 'micronaut-graal-languages'
 
 include 'graalpy'
 include 'graal-languages-bom'
+include 'graal-languages-core'
 include 'test-suite-graalpy'
 
 enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
