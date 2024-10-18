@@ -20,7 +20,7 @@ micronaut = "4.6.6"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.5.0"
 groovy = "4.0.22"
-managed-graalpy = "24.1.0"
+managed-graalpy = "24.1.1"
 
 [libraries]
 # Core
