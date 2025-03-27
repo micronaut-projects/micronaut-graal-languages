@@ -4,10 +4,11 @@ To use the GraalPy integration:
 
 dependency:io.micronaut.micronaut-graal-languages:micronaut-graalpy[scope=compile]
 
-2) Add the https://github.com/oracle/graalpython/blob/master/docs/user/Embedding-Build-Tools.md[GraalPy Maven plugin]
+2) Add the GraalPy plugin configuration for your build tool
 
-WARNING: Gradle plugin not available yet
+2a) https://github.com/oracle/graalpython/blob/master/docs/user/Embedding-Build-Tools.md#graalPy-maven-plugin[GraalPy Maven plugin]
 
+_pom.xml_
 [source,xml]
 ----
 <build>
@@ -20,7 +21,7 @@ WARNING: Gradle plugin not available yet
       <execution>
         <configuration>
           <packages>
-            <package>termcolor==2.2</package> // (1)
+            <package>termcolor==2.2</package> <!-- (1) -->
           </packages>
         </configuration>
       </execution>
@@ -28,6 +29,21 @@ WARNING: Gradle plugin not available yet
   </plugin>
  </plugins>
  <!-- ... -->
+----
+
+2b) https://github.com/oracle/graalpython/blob/master/docs/user/Embedding-Build-Tools.md#graalPy-gradle-plugin[GraalPy Gradle plugin]
+
+_build.gradle_
+[source,groovy]
+----
+plugins {
+    ...
+    id("org.graalvm.python") version "24.2.0"
+}
+
+graalPy {
+    packages = ["termcolor==2.2"] // (1)
+}
 ----
 
 <1> Optional list of Python Package Index (PyPI) packages to be automatically
