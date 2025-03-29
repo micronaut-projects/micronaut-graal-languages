@@ -30,6 +30,8 @@ micronaut-test = { module = "io.micronaut.test:micronaut-test-bom", version.ref 
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
 
+managed-graal-js = { module = 'org.graalvm.js:js', version.ref = 'managed-graalpy' }
+managed-graal-polyglot = { module = 'org.graalvm.polyglot:polyglot', version.ref = 'managed-graalpy' }
 managed-graalpy = { module = 'org.graalvm.python:python', version.ref = 'managed-graalpy' }
 managed-graalpy-embedding = { module = 'org.graalvm.python:python-embedding', version.ref = 'managed-graalpy' }
 
