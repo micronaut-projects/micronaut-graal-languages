@@ -20,7 +20,7 @@ micronaut = "4.8.11"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.7.0"
 groovy = "4.0.22"
-managed-graalpy = "24.2.0"
+managed-graalpy = "24.2.1"
 sonatype-scan = "3.0.0"
 
 [libraries]
