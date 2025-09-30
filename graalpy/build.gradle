@@ -10,5 +10,12 @@ dependencies {
         transitive = true
     }
     api(libs.managed.graalpy.embedding)
+
+    constraints {
+        implementation("org.bouncycastle:bcpkix-jdk18on:1.82") {
+            because("Older versions have security vulnerabilities")
+        }
+    }
+
     implementation(mn.micronaut.aop)
 }
