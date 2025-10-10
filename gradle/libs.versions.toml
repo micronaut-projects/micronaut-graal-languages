@@ -21,7 +21,6 @@ micronaut-docs = "2.0.0"
 micronaut-test = "4.7.0"
 groovy = "4.0.22"
 managed-graalpy = "24.2.1"
-sonatype-scan = "3.1.2"
 
 [libraries]
 # Core
@@ -33,5 +32,3 @@ junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
 
 managed-graalpy = { module = 'org.graalvm.python:python', version.ref = 'managed-graalpy' }
 managed-graalpy-embedding = { module = 'org.graalvm.python:python-embedding', version.ref = 'managed-graalpy' }
-sonatype-scan = { module = "org.sonatype.gradle.plugins:scan-gradle-plugin", version.ref = "sonatype-scan" }
-
