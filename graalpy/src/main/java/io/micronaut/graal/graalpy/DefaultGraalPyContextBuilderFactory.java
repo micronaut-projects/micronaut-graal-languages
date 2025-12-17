@@ -18,7 +18,7 @@ package io.micronaut.graal.graalpy;
 import io.micronaut.core.annotation.Experimental;
 import jakarta.inject.Singleton;
 import org.graalvm.polyglot.Context;
-import org.graalvm.python.embedding.utils.GraalPyResources;
+import org.graalvm.python.embedding.GraalPyResources;
 
 @Experimental
 @Singleton
