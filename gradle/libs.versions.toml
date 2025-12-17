@@ -16,16 +16,12 @@
 # a managed version (a version which alias starts with "managed-"
 
 [versions]
-micronaut = "4.10.9"
-micronaut-docs = "3.0.0"
-micronaut-test = "4.10.2"
-groovy = "4.0.22"
+micronaut = "5.0.0-M4"
 managed-graalpy = "25.0.1"
 
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
-micronaut-test = { module = "io.micronaut.test:micronaut-test-bom", version.ref = "micronaut-test" }
 
 managed-graalpy = { module = 'org.graalvm.python:python', version.ref = 'managed-graalpy' }
 managed-graalpy-embedding = { module = 'org.graalvm.python:python-embedding', version.ref = 'managed-graalpy' }
