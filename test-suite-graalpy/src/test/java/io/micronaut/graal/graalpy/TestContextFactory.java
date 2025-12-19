@@ -5,7 +5,7 @@ import io.micronaut.context.annotation.Replaces;
 import io.micronaut.context.annotation.Requires;
 import jakarta.inject.Singleton;
 import org.graalvm.polyglot.Context;
-import org.graalvm.python.embedding.utils.GraalPyResources;
+import org.graalvm.python.embedding.GraalPyResources;
 
 @Bean
 @Singleton
