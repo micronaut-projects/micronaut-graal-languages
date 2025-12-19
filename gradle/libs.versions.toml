@@ -17,7 +17,6 @@
 
 [versions]
 micronaut = "4.10.12"
-micronaut-docs = "3.0.0"
 micronaut-test = "4.10.2"
 groovy = "4.0.22"
 managed-graalpy = "25.0.1"
