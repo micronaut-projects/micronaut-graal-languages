@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'micronaut-graal-languages-parent'
+rootProject.name = 'micronaut-graal-languages'
 
 include 'graalpy'
 include 'graal-languages-bom'
