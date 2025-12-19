@@ -24,7 +24,7 @@ import org.graalvm.polyglot.Context;
  * Factory that allows customization of the creation of the {@link org.graalvm.polyglot.Context}
  * used by the introduction advice {@link GraalPyModule}.
  * <p>
- * The default implementation returns {@link org.graalvm.python.embedding.utils.GraalPyResources#contextBuilder()}
+ * The default implementation returns {@link org.graalvm.python.embedding.GraalPyResources#contextBuilder()}
  * to create a context builder that is preconfigured with a virtual filesystem that provides
  * access to resources configured with the GraalPy Maven plugin.
  */
