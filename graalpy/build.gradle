@@ -19,3 +19,9 @@ dependencies {
 
     implementation(mn.micronaut.aop)
 }
+
+micronautBuild {
+    descriptor {
+        parentModuleId = "io.micronaut.graalpy:micronaut-graalpy"
+    }
+}
