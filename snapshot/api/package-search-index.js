@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"io.micronaut.graal.graalpy"},{"l":"io.micronaut.graal.graalpy.annotations"},{"l":"io.micronaut.graal.languages.info"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"io.micronaut.graal.graalpy"},{"l":"io.micronaut.graal.graalpy.annotations"}];updateSearchResults();
