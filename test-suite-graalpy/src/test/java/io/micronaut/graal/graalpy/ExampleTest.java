@@ -1,6 +1,7 @@
 package io.micronaut.graal.graalpy;
 
 import io.micronaut.context.ApplicationContext;
+import io.micronaut.json.JsonMapper;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;
 import org.graalvm.polyglot.Value;
@@ -8,6 +9,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.beans.beancontext.BeanContext;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,6 +24,7 @@ public class ExampleTest {
 
     @Inject ApplicationContext beanContext;
     @Inject GraalPyContext pyContext;
+    @Inject JsonMapper jsonMapper;
 
     @Test
     void testDealerService() {
@@ -45,5 +49,27 @@ public class ExampleTest {
         DocExample service = beanContext.getBean(DocExample.class);
         Object[] cards = service.play();
         assertEquals(Set.of(cards), Set.of(1, 2, 3));
+    }
+
+    @Test
+    void testDeserializeNestedSerdeableRecord() throws IOException {
+        byte[] json = """
+            {
+              "fileName": "review.txt",
+              "sentiment": {
+                "positive": 0.75,
+                "neutral": 0.2,
+                "negative": 0.05,
+                "compound": 0.91,
+                "label": "positive"
+              }
+            }
+            """.getBytes(StandardCharsets.UTF_8);
+
+        SentimentAnalysis analysis = jsonMapper.readValue(json, SentimentAnalysis.class);
+
+        assertEquals("review.txt", analysis.fileName());
+        assertEquals("positive", analysis.sentiment().label());
+        assertEquals(0.91, analysis.sentiment().compound());
     }
 }
