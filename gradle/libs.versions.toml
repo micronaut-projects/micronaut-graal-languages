@@ -19,7 +19,7 @@
 micronaut = "5.1.1"
 micronaut-serde = "3.0.0"
 managed-graalpy = "25.0.3"
-managed-graalpy-embedding = "25.0.3"
+managed-graalpy-embedding = "25.3.4.1"
 
 [libraries]
 # Core
