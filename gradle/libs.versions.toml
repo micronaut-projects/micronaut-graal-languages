@@ -16,7 +16,7 @@
 # a managed version (a version which alias starts with "managed-"
 
 [versions]
-micronaut = "5.1.10"
+micronaut = "5.2.0"
 micronaut-serde = "3.1.0"
 managed-graalpy = "25.0.3"
 managed-graalpy-embedding = "25.0.3"
